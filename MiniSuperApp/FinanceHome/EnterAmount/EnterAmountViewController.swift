@@ -8,7 +8,7 @@ protocol EnterAmountPresentableListener: AnyObject {
 }
 
 final class EnterAmountViewController: UIViewController, EnterAmountPresentable, EnterAmountViewControllable {
-  
+
   weak var listener: EnterAmountPresentableListener?
   
   func updateSelectedPaymentMethod(with viewModel: SelectedPaymentMethodViewModel) {

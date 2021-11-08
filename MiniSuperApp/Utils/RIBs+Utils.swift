@@ -11,7 +11,7 @@ final class NavigationControllerable: ViewControllable {
     navigation.navigationBar.isTranslucent = false
     navigation.navigationBar.backgroundColor = .white
     navigation.navigationBar.scrollEdgeAppearance = navigation.navigationBar.standardAppearance
-    
+
     self.navigationController = navigation
   }
 }

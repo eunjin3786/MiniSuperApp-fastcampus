@@ -85,5 +85,4 @@ final class CardOnFileViewController: UIViewController, CardOnFilePresentable, C
   private func didTapClose() {
     listener?.didTapClose()
   }
-  
 }
