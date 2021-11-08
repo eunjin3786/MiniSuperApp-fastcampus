@@ -37,6 +37,7 @@ final class CardOnFileDashboardViewController: UIViewController, CardOnFileDashb
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("전체보기", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
         button.addTarget(self, action: #selector(seeAllButtonDidTap), for: .touchUpInside)
         return button
     }()

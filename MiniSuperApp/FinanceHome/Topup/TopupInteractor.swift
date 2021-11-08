@@ -9,28 +9,66 @@ import ModernRIBs
 
 protocol TopupRouting: Routing {
     func cleanupViews()
-    // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
+    
+    func attachAddPaymentMethod()
+    func detachAddPaymentMethod()
+    
+    func attachEnterAmount()
+    func detachEnterAmount()
 }
 
 protocol TopupListener: AnyObject {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func topupDidClose()
 }
 
-final class TopupInteractor: Interactor, TopupInteractable {
+protocol TopupInteractorDependency {
+    var cardOnFileRepository: CardOnFileRepository { get }
+}
+
+final class TopupInteractor: Interactor, TopupInteractable, AdaptivePresentationControllerDelegate {
 
     weak var router: TopupRouting?
     weak var listener: TopupListener?
 
-    override init() {}
+    private let dependency: TopupInteractorDependency
+    let presentationDelegateProxy: AdaptivePresentationControllerDelegateProxy
+    
+    init(dependency: TopupInteractorDependency) {
+        self.dependency = dependency
+        self.presentationDelegateProxy = AdaptivePresentationControllerDelegateProxy()
+        super.init()
+        self.presentationDelegateProxy.delegate = self
+    }
 
     override func didBecomeActive() {
         super.didBecomeActive()
         
+        if dependency.cardOnFileRepository.cardOnFile.value.isEmpty {
+            // 카드 추가
+            router?.attachAddPaymentMethod()
+        } else {
+            // 금액 입력 화면
+            router?.attachEnterAmount()
+        }
     }
 
     override func willResignActive() {
         super.willResignActive()
 
         router?.cleanupViews()
+    }
+    
+    // MARK: - AdaptivePresentationControllerDelegate
+    func presentationControllerDidDismiss() {
+        listener?.topupDidClose()
+    }
+    
+    func addPaymentMethodDidTapClose() {
+        router?.detachAddPaymentMethod()
+        listener?.topupDidClose()
+    }
+    
+    func addPaymentMethodDidAddCard(paymentMethod: PaymentMethod) {
+        
     }
 }

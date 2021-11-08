@@ -37,6 +37,7 @@ final class SuperPayDashboardViewController: UIViewController, SuperPayDashboard
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("충전하기", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
         button.addTarget(self, action: #selector(topupButtonDidTap), for: .touchUpInside)
         return button
     }()

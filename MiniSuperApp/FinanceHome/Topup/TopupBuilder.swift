@@ -8,20 +8,16 @@
 import ModernRIBs
 
 protocol TopupDependency: Dependency {
-    // TODO: Make sure to convert the variable into lower-camelcase.
+    var cardOnFileRepository: CardOnFileRepository { get }
     var topupBaseViewController: ViewControllable { get }
-    // TODO: Declare the set of dependencies required by this RIB, but won't be
-    // created by this RIB.
 }
 
-final class TopupComponent: Component<TopupDependency> {
-
-    // TODO: Make sure to convert the variable into lower-camelcase.
+final class TopupComponent: Component<TopupDependency>, TopupInteractorDependency, AddPaymentMethodDependency, EnterAmountDependency {
+    
+    var cardOnFileRepository: CardOnFileRepository { dependency.cardOnFileRepository }
     fileprivate var topupBaseViewController: ViewControllable {
         return dependency.topupBaseViewController
     }
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
 }
 
 // MARK: - Builder
@@ -38,8 +34,13 @@ final class TopupBuilder: Builder<TopupDependency>, TopupBuildable {
 
     func build(withListener listener: TopupListener) -> TopupRouting {
         let component = TopupComponent(dependency: dependency)
-        let interactor = TopupInteractor()
+        let interactor = TopupInteractor(dependency: component)
         interactor.listener = listener
-        return TopupRouter(interactor: interactor, viewController: component.topupBaseViewController)
+        let addPaymentMethodBuilder = AddPaymentMethodBuilder(dependency: component)
+        let enterAmountBuilder = EnterAmountBuilder(dependency: component)
+        return TopupRouter(interactor: interactor,
+                           viewController: component.topupBaseViewController,
+                           addPaymentMethodBuilder: addPaymentMethodBuilder,
+                           enterAmountBuilder: enterAmountBuilder)
     }
 }

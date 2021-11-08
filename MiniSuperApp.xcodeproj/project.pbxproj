@@ -32,6 +32,10 @@
 		C2C0CB1727395C2F00FB4B7A /* TopupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C0CB1427395C2F00FB4B7A /* TopupRouter.swift */; };
 		C2C0CB1827395C2F00FB4B7A /* TopupBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C0CB1527395C2F00FB4B7A /* TopupBuilder.swift */; };
 		C2C0CB1927395C2F00FB4B7A /* TopupInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C0CB1627395C2F00FB4B7A /* TopupInteractor.swift */; };
+		C2C0CB1F2739670F00FB4B7A /* EnterAmountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C0CB1B2739670F00FB4B7A /* EnterAmountRouter.swift */; };
+		C2C0CB202739670F00FB4B7A /* EnterAmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C0CB1C2739670F00FB4B7A /* EnterAmountViewController.swift */; };
+		C2C0CB212739670F00FB4B7A /* EnterAmountBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C0CB1D2739670F00FB4B7A /* EnterAmountBuilder.swift */; };
+		C2C0CB222739670F00FB4B7A /* EnterAmountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C0CB1E2739670F00FB4B7A /* EnterAmountInteractor.swift */; };
 		F57F6AE826DB4A2700C0117D /* FinanceHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F6AE426DB4A2700C0117D /* FinanceHomeRouter.swift */; };
 		F57F6AE926DB4A2700C0117D /* FinanceHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F6AE526DB4A2700C0117D /* FinanceHomeViewController.swift */; };
 		F57F6AEA26DB4A2700C0117D /* FinanceHomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57F6AE626DB4A2700C0117D /* FinanceHomeBuilder.swift */; };
@@ -93,6 +97,10 @@
 		C2C0CB1427395C2F00FB4B7A /* TopupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopupRouter.swift; sourceTree = "<group>"; };
 		C2C0CB1527395C2F00FB4B7A /* TopupBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopupBuilder.swift; sourceTree = "<group>"; };
 		C2C0CB1627395C2F00FB4B7A /* TopupInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopupInteractor.swift; sourceTree = "<group>"; };
+		C2C0CB1B2739670F00FB4B7A /* EnterAmountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountRouter.swift; sourceTree = "<group>"; };
+		C2C0CB1C2739670F00FB4B7A /* EnterAmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountViewController.swift; sourceTree = "<group>"; };
+		C2C0CB1D2739670F00FB4B7A /* EnterAmountBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountBuilder.swift; sourceTree = "<group>"; };
+		C2C0CB1E2739670F00FB4B7A /* EnterAmountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterAmountInteractor.swift; sourceTree = "<group>"; };
 		F57F6AE426DB4A2700C0117D /* FinanceHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceHomeRouter.swift; sourceTree = "<group>"; };
 		F57F6AE526DB4A2700C0117D /* FinanceHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceHomeViewController.swift; sourceTree = "<group>"; };
 		F57F6AE626DB4A2700C0117D /* FinanceHomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceHomeBuilder.swift; sourceTree = "<group>"; };
@@ -196,6 +204,17 @@
 			path = Topup;
 			sourceTree = "<group>";
 		};
+		C2C0CB1A2739660400FB4B7A /* EnterAmount */ = {
+			isa = PBXGroup;
+			children = (
+				C2C0CB1B2739670F00FB4B7A /* EnterAmountRouter.swift */,
+				C2C0CB1C2739670F00FB4B7A /* EnterAmountViewController.swift */,
+				C2C0CB1D2739670F00FB4B7A /* EnterAmountBuilder.swift */,
+				C2C0CB1E2739670F00FB4B7A /* EnterAmountInteractor.swift */,
+			);
+			path = EnterAmount;
+			sourceTree = "<group>";
+		};
 		F57F6AD926DB49E500C0117D /* AppHome */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +231,7 @@
 		F57F6ADA26DB49EA00C0117D /* FinanceHome */ = {
 			isa = PBXGroup;
 			children = (
+				C2C0CB1A2739660400FB4B7A /* EnterAmount */,
 				C2C0CB1327395C1800FB4B7A /* Topup */,
 				C2C0CAE0272FF36800FB4B7A /* Repository */,
 				C2C0CAC0272FC83000FB4B7A /* SuperPayDashboard */,
@@ -416,6 +436,7 @@
 				F5EAA229270B3A4500EF2B70 /* TransportHomeViewController.swift in Sources */,
 				F57F6AF226DB4A2D00C0117D /* ProfileHomeBuilder.swift in Sources */,
 				F5EAA22A270B3A4500EF2B70 /* TransportHomeRouter.swift in Sources */,
+				C2C0CB202739670F00FB4B7A /* EnterAmountViewController.swift in Sources */,
 				C2C0CAD8272FEBC800FB4B7A /* CardOnFileDashboardInteractor.swift in Sources */,
 				C2C0CB0B2739294300FB4B7A /* AddPaymentMethodRouter.swift in Sources */,
 				C2C0CB122739467D00FB4B7A /* AddPaymentMethodInfo.swift in Sources */,
@@ -450,15 +471,18 @@
 				F5EAA219270B395900EF2B70 /* HomeWidgetView.swift in Sources */,
 				C2C0CB1927395C2F00FB4B7A /* TopupInteractor.swift in Sources */,
 				F57F6AFE26DB4CD700C0117D /* RootTabBarController.swift in Sources */,
+				C2C0CB1F2739670F00FB4B7A /* EnterAmountRouter.swift in Sources */,
 				C2C0CAC7272FCBCD00FB4B7A /* SuperPayDashboardBuilder.swift in Sources */,
 				C2C0CACD272FE50800FB4B7A /* Combine+Utils.swift in Sources */,
 				F57F6AEB26DB4A2700C0117D /* FinanceHomeInteractor.swift in Sources */,
 				F5EAA21B270B395900EF2B70 /* AppHomeInteractor.swift in Sources */,
 				C2C0CB1727395C2F00FB4B7A /* TopupRouter.swift in Sources */,
+				C2C0CB222739670F00FB4B7A /* EnterAmountInteractor.swift in Sources */,
 				C2C0CAE4272FF5F100FB4B7A /* PaymentMethodViewModel.swift in Sources */,
 				C2C0CAC6272FCBCD00FB4B7A /* SuperPayDashboardViewController.swift in Sources */,
 				F57F6AE826DB4A2700C0117D /* FinanceHomeRouter.swift in Sources */,
 				C2C0CB0C2739294300FB4B7A /* AddPaymentMethodViewController.swift in Sources */,
+				C2C0CB212739670F00FB4B7A /* EnterAmountBuilder.swift in Sources */,
 				C2C0CAE2272FF37900FB4B7A /* CardOnFileRepository.swift in Sources */,
 				F57F6AE926DB4A2700C0117D /* FinanceHomeViewController.swift in Sources */,
 				F5829F5926DB2BC400BFA8CD /* AppDelegate.swift in Sources */,
