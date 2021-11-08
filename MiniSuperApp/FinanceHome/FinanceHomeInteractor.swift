@@ -45,6 +45,7 @@ final class FinanceHomeInteractor: PresentableInteractor<FinanceHomePresentable>
         // TODO: Pause any business logic.
     }
     
+    // MARK: - AdaptivePresentationControllerDelegate
     func presentationControllerDidDismiss() {
         router?.detachAddPaymentMethod()
     }
