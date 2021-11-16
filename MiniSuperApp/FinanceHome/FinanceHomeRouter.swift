@@ -67,12 +67,12 @@ final class FinanceHomeRouter: ViewableRouter<FinanceHomeInteractable, FinanceHo
         attachChild(router)
     }
     
-    func attachAddPaymentMethod() {
+    func attachAddPaymentMethod(closeButtonType: DismissButtonType) {
         if addPaymentMethodRouting != nil {
             return
         }
         
-        let router = addPaymentMethodBuilder.build(withListener: self.interactor)
+        let router = addPaymentMethodBuilder.build(withListener: self.interactor, closeButtonType: closeButtonType)
         let navigation = NavigationControllerable(root: router.viewControllable)
         navigation.navigationController.presentationController?.delegate = interactor.presentationDelegateProxy
         viewControllable.present(navigation, animated: true, completion: nil)
