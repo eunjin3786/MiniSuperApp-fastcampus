@@ -70,7 +70,8 @@ let package = Package(
             name: "FinanceRepository",
             dependencies: [
                 "FinanceEntity",
-                .product(name: "CombineUtil", package: "Platform")
+                .product(name: "CombineUtil", package: "Platform"),
+                .product(name: "Network", package: "Platform")
             ]
         ),
         .target(
@@ -89,6 +90,7 @@ let package = Package(
                 "AddPaymentMethod",
                 .product(name: "RIBsUtil", package: "Platform"),
                 .product(name: "SuperUI", package: "Platform"),
+                .product(name: "DefaultsStore", package: "Platform")
             ]
         ),
         .target(
