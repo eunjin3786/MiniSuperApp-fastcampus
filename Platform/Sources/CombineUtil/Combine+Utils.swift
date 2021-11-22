@@ -24,7 +24,7 @@ public class ReadOnlyCurrentValuePublisher<Element>: Publisher {
 
 public final class CurrentValuePublisher<Element> : ReadOnlyCurrentValuePublisher<Element> {
     
-    override init(_ initialValue: Element) {
+    public override init(_ initialValue: Element) {
         super.init(initialValue)
     }
     
