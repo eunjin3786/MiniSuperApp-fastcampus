@@ -10,6 +10,7 @@ import FinanceRepository
 import CombineUtil
 import FinanceEntity
 import AddPaymentMethod
+import Topup
 
 public protocol TopupDependency: Dependency {
     var cardOnFileRepository: CardOnFileRepository { get }
@@ -37,10 +38,6 @@ final class TopupComponent: Component<TopupDependency>, TopupInteractorDependenc
 }
 
 // MARK: - Builder
-
-public protocol TopupBuildable: Buildable {
-    func build(withListener listener: TopupListener) -> Routing
-}
 
 public final class TopupBuilder: Builder<TopupDependency>, TopupBuildable {
 
