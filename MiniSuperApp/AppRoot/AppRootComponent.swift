@@ -19,8 +19,11 @@ import AddPaymentMethod
 import AddPaymentMethodImp
 import Network
 import NetworkImp
+import CombineSchedulers
 
 final class AppRootComponent: Component<AppRootDependency>, AppHomeDependency, FinanceHomeDependency, ProfileHomeDependency, TransportHomeDependency, TopupDependency, AddPaymentMethodDependency {
+    
+    var mainQueue: AnySchedulerOf<DispatchQueue> { .main }
     
     lazy var transportHomeBuildable: TransportHomeBuildable = {
         return TransportHomeBuilder(dependency: self)

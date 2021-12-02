@@ -8,6 +8,7 @@
 import ModernRIBs
 import FinanceRepository
 import CombineUtil
+import CombineSchedulers
 import FinanceEntity
 import AddPaymentMethod
 import Topup
@@ -17,9 +18,12 @@ public protocol TopupDependency: Dependency {
     var topupBaseViewController: ViewControllable { get }
     var superPayRepository: SuperPayRepository { get }
     var addPaymentMethodBuilable: AddPaymentMethodBuildable { get }
+    var mainQueue: AnySchedulerOf<DispatchQueue> { get }
 }
 
 final class TopupComponent: Component<TopupDependency>, TopupInteractorDependency, EnterAmountDependency, CardOnFileDependency {
+    
+    var mainQueue: AnySchedulerOf<DispatchQueue> { dependency.mainQueue }
     
     var selectedPaymentMethod: ReadOnlyCurrentValuePublisher<PaymentMethod> { paymentMethodStream }
     
