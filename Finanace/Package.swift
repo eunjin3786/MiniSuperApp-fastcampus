@@ -35,6 +35,10 @@ let package = Package(
             name: "FinanceHome",
             targets: ["FinanceHome"]
         ),
+        .library(
+            name: "FinanaceRepositoryTestSupport",
+            targets: ["FinanaceRepositoryTestSupport"]
+        )
     ],
     dependencies: [
         .package(name: "ModernRIBs", url: "https://github.com/DevYeom/ModernRIBs", .exact("1.0.1")),
@@ -104,6 +108,20 @@ let package = Package(
                 .product(name: "RIBsUtil", package: "Platform"),
                 .product(name: "SuperUI", package: "Platform"),
             ]
-        )
+        ),
+        .target(
+            name: "FinanaceRepositoryTestSupport",
+            dependencies: [
+                "FinanceEntity",
+                "FinanceRepository",
+                .product(name: "CombineUtil", package: "Platform")
+            ]
+        ),
+        .testTarget(
+            name: "TopupImpTests",
+            dependencies: [
+                "TopupImp",
+                "FinanaceRepositoryTestSupport"
+        ])
     ]
 )
