@@ -42,6 +42,10 @@ let package = Package(
         .library(
             name: "TopupTestSupport",
             targets: ["TopupTestSupport"]
+        ),
+        .library(
+            name: "AddPaymentMethodTestSupport",
+            targets: ["AddPaymentMethodTestSupport"]
         )
     ],
     dependencies: [
@@ -127,12 +131,20 @@ let package = Package(
                 "Topup"
             ]
         ),
+        .target(
+            name: "AddPaymentMethodTestSupport",
+            dependencies: [
+                "AddPaymentMethod"
+            ]
+        ),
         .testTarget(
             name: "TopupImpTests",
             dependencies: [
                 "TopupImp",
                 "FinanaceRepositoryTestSupport",
-                "TopupTestSupport"
+                "TopupTestSupport",
+                "AddPaymentMethodTestSupport",
+                .product(name: "RIBsTestSupport", package: "Platform")
         ])
     ]
 )

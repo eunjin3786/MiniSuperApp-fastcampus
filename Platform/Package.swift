@@ -30,6 +30,10 @@ let package = Package(
         .library(
             name: "NetworkImp",
             targets: ["NetworkImp"]
+        ),
+        .library(
+            name: "RIBsTestSupport",
+            targets: ["RIBsTestSupport"]
         )
     ],
     dependencies: [
@@ -76,6 +80,12 @@ let package = Package(
             dependencies: [
                 "Network"
             ]
-        )
+        ),
+        .target(
+            name: "RIBsTestSupport",
+            dependencies: [
+                "ModernRIBs"
+            ]
+        ),
     ]
 )
