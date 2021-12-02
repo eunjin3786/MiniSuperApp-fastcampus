@@ -38,6 +38,10 @@ let package = Package(
         .library(
             name: "FinanaceRepositoryTestSupport",
             targets: ["FinanaceRepositoryTestSupport"]
+        ),
+        .library(
+            name: "TopupTestSupport",
+            targets: ["TopupTestSupport"]
         )
     ],
     dependencies: [
@@ -117,11 +121,18 @@ let package = Package(
                 .product(name: "CombineUtil", package: "Platform")
             ]
         ),
+        .target(
+            name: "TopupTestSupport",
+            dependencies: [
+                "Topup"
+            ]
+        ),
         .testTarget(
             name: "TopupImpTests",
             dependencies: [
                 "TopupImp",
-                "FinanaceRepositoryTestSupport"
+                "FinanaceRepositoryTestSupport",
+                "TopupTestSupport"
         ])
     ]
 )
