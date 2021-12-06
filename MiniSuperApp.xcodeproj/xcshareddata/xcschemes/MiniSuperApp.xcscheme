@@ -39,6 +39,16 @@
                ReferencedContainer = "container:Finanace">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C2F20965275DE11000F1851F"
+               BuildableName = "MiniSuperAppUITests.xctest"
+               BlueprintName = "MiniSuperAppUITests"
+               ReferencedContainer = "container:MiniSuperApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

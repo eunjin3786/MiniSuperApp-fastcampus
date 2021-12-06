@@ -1,0 +1,53 @@
+//
+//  TopupImpUITests.swift
+//  MiniSuperAppUITests
+//
+//  Created by Jinny on 12/6/21.
+//
+
+import XCTest
+import Swifter
+
+class TopupImpUITests: XCTestCase {
+
+    private var app: XCUIApplication!
+    private var server: HttpServer!
+    
+    override func setUpWithError() throws {
+        continueAfterFailure = false
+        
+        server = HttpServer()
+        app = XCUIApplication()
+        app.launch()
+    }
+
+    override func tearDownWithError() throws {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    }
+
+    func testTopupSuccess() throws {
+        // given
+        let cardOnFileJSONPath = try TestUtil.path(for: "cardOnFile.json", in: type(of: self))
+        server["/cards"] = shareFile(cardOnFileJSONPath)
+        
+        // when
+        let topupFileJSONPath = try TestUtil.path(for: "topupSuccessResponse.json", in: type(of: self))
+        server["/topup"] = shareFile(topupFileJSONPath)
+        
+        // when
+        try server.start()
+        app.launch()
+        
+        // then
+        app.tabBars.buttons["superpay_home_tab_bar_item"].tap()
+        app.buttons["superpay_dashboard_topup_button"].tap()
+        
+        let textField = app.textFields["topup_enteramount_textfield"]
+        textField.tap()
+        textField.typeText("10000")
+        
+        app.buttons["topup_enteramount_confirm_button"].tap()
+        
+        XCTAssertEqual(app.staticTexts.element(matching: .any, identifier: "superpay_dashboard_balance_label").label, "10,000")
+    }
+}
